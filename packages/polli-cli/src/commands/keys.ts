@@ -204,6 +204,14 @@ Examples:
                 fail("--earnings requires --type publishable");
             }
             if (opts.expiresIn !== undefined) {
+                // Decimal digits only: Number() would also accept hex
+                // ("0x10"), binary ("0b11"), octal ("0o17") and scientific
+                // ("1e3") spellings, which are never meant as seconds.
+                if (!/^[0-9]+$/.test(opts.expiresIn.trim())) {
+                    fail(
+                        "--expires-in must be a whole number of seconds above 0",
+                    );
+                }
                 const expiresIn = Number(opts.expiresIn);
                 if (!Number.isInteger(expiresIn) || expiresIn < 1) {
                     fail(

@@ -147,6 +147,19 @@ describe("keys create --expires-in validation", () => {
             ).rejects.toThrow();
         },
     );
+
+    it.each(["0x10", "1e3", "0b11", "0o17"])(
+        "rejects non-decimal expiresIn %s",
+        async (invalidValue) => {
+            prepare(null);
+            await expect(
+                keysCommand.parseAsync(
+                    ["create", "--name", "test", "--expires-in", invalidValue],
+                    { from: "user" },
+                ),
+            ).rejects.toThrow();
+        },
+    );
 });
 
 describe("keys update", () => {
