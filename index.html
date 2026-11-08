@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glassbox Lab · turn a science topic into a simulation you can question</title>
+<meta name="description" content="Type a science topic and get a live, checked simulation with sliders, a guided tour and predict-then-test questions. The AI never writes code: it writes a glass-box model that a trusted engine runs. Built with Pollinations.">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#/"><i aria-hidden="true"></i>Glassbox Lab</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#/" id="nav-home">Create &amp; gallery</a>
+      <a href="#/settings" id="nav-settings">Settings</a>
+    </nav>
+    <div class="tools">
+      <span id="chip" class="chipbal" hidden></span>
+      <polli-connect id="connect" app-key="pk_REPLACE_ME" budget="1" expiry="7"></polli-connect>
+      <button id="theme" class="iconbtn" type="button" aria-label="Switch theme" title="Switch theme"></button>
+    </div>
+  </div>
+</header>
+<main id="view" class="wrap" tabindex="-1" aria-live="off"></main>
+<footer class="foot">
+  <div class="wrap">
+    <p>Built with pollinations.ai: text (<code>gen.pollinations.ai/v1/chat/completions</code>), images (<code>gen.pollinations.ai/image/…</code>), speech (<code>gen.pollinations.ai/v1/audio/speech</code>). You pay with your own Pollen. Sources: Wikipedia. AI can be wrong.
+      · <a href="https://github.com/patbing/glassbox-lab" rel="noopener">GitHub</a></p>
+    <p><a href="https://pollinations.ai/?ref=badge" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai" height="28"></a></p>
+  </div>
+</footer>
+<dialog id="dlg" aria-labelledby="dlg-title"></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+<script src="js/pollinations.js"></script>
+<script src="js/util.js"></script>
+<script src="js/expr.js"></script>
+<script src="js/schema.js"></script>
+<script src="js/sim-engine.js"></script>
+<script src="js/checks.js"></script>
+<script src="js/cost.js"></script>
+<script src="js/prompts.js"></script>
+<script src="js/pipeline.js"></script>
+<script src="js/auth.js"></script>
+<script src="lessons/gallery.js"></script>
+<script src="lessons/demo-responses.js"></script>
+<script src="js/demo-transport.js"></script>
+<script src="js/export-css.js"></script>
+<script src="js/lesson-view.js"></script>
+<script src="js/export.js"></script>
+<script src="js/app.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@pollinations/ui@0.1.0-alpha.31/dist/connect.js"></script>
+</body>
+</html>
